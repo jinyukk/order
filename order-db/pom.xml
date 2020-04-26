@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>order</artifactId>
+        <groupId>com.jzy</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>order-db</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <jdbc>
+                        <driver>com.mysql.cj.jdbc.Driver</driver>
+                        <url>jdbc:mysql://localhost:3306/order?useUnicode=yes&amp;characterEncoding=UTF8&amp;serverTimezone=Asia/Shanghai</url>
+                        <user>root</user>
+                        <password>123123</password>
+                    </jdbc>
+
+                    <generator>
+                        <database>
+                            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+                            <includes>.*</includes>
+                            <!-- <excludes></excludes> -->
+                            <inputSchema>order</inputSchema>
+
+                            <forcedTypes>
+                                <forcedType>
+                                    <name>INTEGER</name>
+                                    <includeExpression>.*</includeExpression>
+                                    <includeTypes>TINYINT\(4\)</includeTypes>
+                                    <nullability>ALL</nullability>
+                                    <objectType>ALL</objectType>
+                                </forcedType>
+                            </forcedTypes>
+                        </database>
+
+                        <generate>
+                            <deprecated>false</deprecated>
+                            <records>true</records>
+                            <pojos>true</pojos>
+                            <daos>true</daos>
+                        </generate>
+
+                        <strategy>
+                            <matchers>
+                                <tables>
+                                    <table>
+                                        <pojoClass>
+                                            <transform>PASCAL</transform>
+                                            <expression>$0_Entity</expression>
+                                        </pojoClass>
+                                        <daoClass>
+                                            <transform>PASCAL</transform>
+                                            <expression>$0_Entity_Dao</expression>
+                                        </daoClass>
+                                    </table>
+                                </tables>
+                            </matchers>
+                        </strategy>
+
+                        <target>
+                            <packageName>com.jzy.order.db</packageName>
+                            <directory>src/main/java/</directory>
+                        </target>
+                    </generator>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

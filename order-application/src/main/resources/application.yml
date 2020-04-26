@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: order
+  profiles:
+    active: local
+  datasource:
+    druid:
+      master:
+        name: master
+        url: jdbc:mysql://${db.master.host}:${db.master.port}/${db.master.database}?zeroDateTimeBehavior=CONVERT_TO_NULL&useUnicode=yes&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+        username: ${db.master.username}
+        password: ${db.master.password}
+        maxActive: 100
+        initialSize: 10
+        driverClassName: com.mysql.cj.jdbc.Driver
+        filters: stat,slf4j
+
+redis:
+  host: ${redis.host}
+  port: ${redis.port}
+  databaseNo: ${redis.databaseNo}

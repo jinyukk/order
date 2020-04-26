@@ -1,0 +1,12 @@
+db:
+  master:
+    host: 127.0.0.1
+    port: 3306
+    database: order
+    username: root
+    password: 123123
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  databaseNo: 0

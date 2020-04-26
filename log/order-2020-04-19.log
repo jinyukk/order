@@ -1,0 +1,36 @@
+2020-04-19 23:16:21.084 [INFO ] order [main] com.jzy.order.bootstrap.OrderApplication [55] - Starting OrderApplication on DESKTOP-0LGBA8E with PID 17592 (C:\Users\dell\Desktop\order\order-application\target\classes started by dell in C:\Users\dell\Desktop\order)
+2020-04-19 23:16:21.104 [INFO ] order [main] com.jzy.order.bootstrap.OrderApplication [655] - The following profiles are active: local
+2020-04-19 23:16:25.323 [INFO ] order [main] o.s.b.w.embedded.tomcat.TomcatWebServer [92] - Tomcat initialized with port(s): 8080 (http)
+2020-04-19 23:16:25.376 [INFO ] order [main] o.apache.coyote.http11.Http11NioProtocol [173] - Initializing ProtocolHandler ["http-nio-8080"]
+2020-04-19 23:16:25.377 [INFO ] order [main] org.apache.catalina.core.StandardService [173] - Starting service [Tomcat]
+2020-04-19 23:16:25.437 [INFO ] order [main] org.apache.catalina.core.StandardEngine [173] - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-19 23:16:25.440 [INFO ] order [main] o.a.catalina.core.AprLifecycleListener [173] - An older version [1.2.21] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-04-19 23:16:25.441 [INFO ] order [main] o.a.catalina.core.AprLifecycleListener [173] - Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2020-04-19 23:16:25.441 [INFO ] order [main] o.a.catalina.core.AprLifecycleListener [173] - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-04-19 23:16:25.442 [INFO ] order [main] o.a.catalina.core.AprLifecycleListener [173] - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-04-19 23:16:25.541 [INFO ] order [main] o.a.catalina.core.AprLifecycleListener [173] - OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2020-04-19 23:16:25.902 [INFO ] order [main] o.a.c.c.C.[Tomcat].[localhost].[/] [173] - Initializing Spring embedded WebApplicationContext
+2020-04-19 23:16:25.902 [INFO ] order [main] o.s.web.context.ContextLoader [284] - Root WebApplicationContext: initialization completed in 4608 ms
+2020-04-19 23:16:26.083 [WARN ] order [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [558] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productCategoryController': Unsatisfied dependency expressed through field 'productCategoryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productCategoryServiceImpl': Unsatisfied dependency expressed through field 'dslContext'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.jooq.DSLContext' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-04-19 23:16:26.088 [INFO ] order [main] org.apache.catalina.core.StandardService [173] - Stopping service [Tomcat]
+2020-04-19 23:16:26.117 [INFO ] order [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener [136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-04-19 23:16:26.707 [ERROR] order [main] o.s.b.d.LoggingFailureAnalysisReporter [40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field dslContext in com.jzy.order.service.impl.ProductCategoryServiceImpl required a bean of type 'org.jooq.DSLContext' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.jooq.DSLContext' in your configuration.
+

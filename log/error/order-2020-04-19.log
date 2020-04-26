@@ -1,0 +1,18 @@
+2020-04-19 23:16:26.707 [ERROR] order [main] o.s.b.d.LoggingFailureAnalysisReporter [40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field dslContext in com.jzy.order.service.impl.ProductCategoryServiceImpl required a bean of type 'org.jooq.DSLContext' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.jooq.DSLContext' in your configuration.
+
